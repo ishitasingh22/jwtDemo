@@ -33,10 +33,14 @@ public class JwtService {
     }
 
     public String verifyAndGetUsername(String token) {
-        try{
+        try {
             return verifier.verify(token).getSubject();
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
+    }
+
+    public String validateToken(String token) {
+        return verifyAndGetUsername(token);
     }
 }
